@@ -28,13 +28,21 @@ class MyApp extends StatelessWidget {
             ],
           ),
           body: Container(),
-          bottomNavigationBar: BottomNavigationBar(
-            items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'home'),
-              BottomNavigationBarItem(icon: Icon(Icons.list), label: 'list'),
-              BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'setting')
-            ])
+          bottomNavigationBar: CustomBottomNavBar()
         )
     );
+  }
+}
+class CustomBottomNavBar extends StatelessWidget {
+  const CustomBottomNavBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return  BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'home'),
+          BottomNavigationBarItem(icon: Icon(Icons.list), label: 'list'),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'setting')
+        ]);
   }
 }
