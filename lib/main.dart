@@ -28,10 +28,13 @@ class MyApp extends StatelessWidget {
             ],
           ),
           body: Container(),
-          bottomNavigationBar: BottomAppBar(),
+          bottomNavigationBar: BottomNavigationBar(
+            items: const [
+              BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'home'),
+              BottomNavigationBarItem(icon: Icon(Icons.list), label: 'list'),
+              BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'setting')
+            ])
         )
     );
   }
 }
-
-
