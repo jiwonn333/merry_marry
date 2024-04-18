@@ -42,11 +42,9 @@ class _MerryMarryState extends State<MerryMarry> {
             appBar: CustomAppBar(),
             body: _pages[_selectedIndex],
             bottomNavigationBar:  BottomNavigationBar(
-              items: const [
-                BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'home'),
-                BottomNavigationBarItem(icon: Icon(Icons.list), label: 'list'),
-                BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'setting')
-              ],
+              items: _navItems.map((item) {
+                      return BottomNavigationBarItem(icon: Icon(item.navIcon), label: item.label);
+              }).toList(),
               currentIndex: _selectedIndex,
               onTap: navTapped
             )
@@ -79,3 +77,23 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
+
+/// NavItem
+/// BottomNavigationBar 에 필요한 icon, label을  담고 있는 모델 클래스
+class NavItem {
+  final IconData navIcon;
+  final String label;
+
+  const NavItem({
+    required this.navIcon,
+    required this.label
+  });
+}
+
+/// 전역적 선언
+/// 네비게이션 추가 또는 삭제를 위해
+const _navItems = [
+  NavItem(navIcon: Icons.favorite, label: 'home'),
+  NavItem(navIcon: Icons.list, label: 'list'),
+  NavItem(navIcon: Icons.settings, label: 'setting')
+];
