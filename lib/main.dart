@@ -46,7 +46,8 @@ class _MerryMarryState extends State<MerryMarry> {
                       return BottomNavigationBarItem(icon: Icon(item.navIcon), label: item.label);
               }).toList(),
               currentIndex: _selectedIndex,
-              onTap: navTapped
+              onTap: navTapped,
+              selectedFontSize: 12,
             )
         )
     );
